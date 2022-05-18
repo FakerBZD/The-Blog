@@ -9,6 +9,7 @@ import { Tooltip } from "@mui/material";
 import {
   NavigationBarStyled,
   MenuItemsContainerStyled,
+  iconStyle,
 } from "./Navigation.styles";
 
 const Navigation: FC<any> = (): ReactElement => (
@@ -17,13 +18,7 @@ const Navigation: FC<any> = (): ReactElement => (
       <Tooltip title="All blogs ">
         <Link to="/all-blogs">
           <Button>
-            <BookIcon
-              style={{
-                width: "5em",
-                height: "2em",
-                fill: "#ffffff",
-              }}
-            />
+            <BookIcon sx={iconStyle} />
           </Button>
         </Link>
       </Tooltip>
@@ -32,9 +27,7 @@ const Navigation: FC<any> = (): ReactElement => (
       <Tooltip title="Add new blog ">
         <Link to="/add-blog">
           <Button>
-            <AddBoxIcon
-              style={{ width: "5em", height: "2em", fill: "#ffffff" }}
-            />
+            <AddBoxIcon sx={iconStyle} />
           </Button>
         </Link>
       </Tooltip>

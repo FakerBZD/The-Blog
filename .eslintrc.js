@@ -1,10 +1,9 @@
 module.exports = {
   extends: [
-    "airbnb-typescript",
-    "airbnb/hooks",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:jest/recommended",
-    "plugin:prettier/recommended",
+    "plugin:import/recommended",
+    "airbnb/base",
+    "eslint-config-prettier",
+    "plugin:storybook/recommended",
   ],
   plugins: ["react", "@typescript-eslint", "jest", "prettier"],
   env: {
@@ -27,10 +26,10 @@ module.exports = {
   },
   rules: {
     "linebreak-style": "off",
+    "import/no-extraneous-dependencies": "off",
     "import/no-unresolved": "off",
     "import/extensions": "off",
-    "import/prefer-default-export":"off",
-
+    "import/prefer-default-export": "off",
     "prettier/prettier": [
       "error",
       {

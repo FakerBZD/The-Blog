@@ -24,3 +24,8 @@ export const MenuItemsContainerStyled = styled("div")(() => ({
   width: "5em",
   cursor: "pointer",
 }));
+export const iconStyle = {
+  width: "5em",
+  height: "2em",
+  fill: "#ffffff",
+};
