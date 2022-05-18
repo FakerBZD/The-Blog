@@ -1,7 +1,6 @@
 import { styled } from "@mui/material/styles";
 
 export const BlogContainerStyled = styled("div")(() => ({
-  backgroundColor: "#eeeeee",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",

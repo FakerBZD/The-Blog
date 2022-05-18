@@ -6,7 +6,7 @@ export const NavigationBarStyled = styled(AppBar)(({ theme }) => ({
   justifyContent: "center",
   alignItems: "center",
   flexDirection: "row",
-  backgroundColor: "#ffffff",
+  backgroundColor: "#000000",
   [theme.breakpoints.up("md")]: {
     width: "10em",
     marginLeft: "-5em",
@@ -14,6 +14,7 @@ export const NavigationBarStyled = styled(AppBar)(({ theme }) => ({
   },
   top: "auto",
   bottom: 0,
+  borderRadius: "0.25em",
 }));
 export const MenuItemsContainerStyled = styled("div")(() => ({
   display: "flex",

@@ -1,22 +1,15 @@
-import Footer from "components/Footer/footer";
+import Footer from "components/Footer/Footer";
 import Navigation from "components/Navigation/Navigation";
 import React, { PropsWithChildren } from "react";
 import { Outlet } from "react-router-dom";
 import { LayoutInterface } from "./Layout.types";
+import { LayoutStyled } from "./Layout.styles";
 
 const Layout: React.FC<PropsWithChildren<LayoutInterface>> = () => (
-  <div>
-    <Navigation />
-    {/* <SideBar onCollapse={() => setCollapsed(!collapsed)} />
-
-      <StyledMain collapsed={collapsed}>
-        <Navbar />
-        <Box sx={ChildLayout(pathname)}>
-          <Outlet />
-        </Box>
-      </StyledMain> */}
+  <LayoutStyled>
     <Outlet />
     <Footer />
-  </div>
+    <Navigation />
+  </LayoutStyled>
 );
 export default Layout;
