@@ -15,6 +15,10 @@ import {
   BlogContentStyled,
 } from "./Blogstyles";
 
+const modules = {
+  toolbar: false,
+};
+
 const Blog: FC<any> = (): ReactElement => (
   <BlogContainerStyled>
     <BlogPaperStyled>
@@ -32,7 +36,7 @@ const Blog: FC<any> = (): ReactElement => (
         </Grid>
       </BlogHeaderStyled>
       <BlogContentStyled>
-        <ReactQuill readOnly value="dsqdsq" />
+        <ReactQuill modules={modules} readOnly value="dsqdsq" />
       </BlogContentStyled>
     </BlogPaperStyled>
   </BlogContainerStyled>

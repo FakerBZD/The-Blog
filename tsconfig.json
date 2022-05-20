@@ -11,14 +11,13 @@
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
     "outDir": "dist",
+    "strictNullChecks": false,
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     // "noEmit": true,
     "jsx": "react",
-    "baseUrl": "./src",
-
-
+    "baseUrl": "./src"
   },
   "include": ["src"]
 }

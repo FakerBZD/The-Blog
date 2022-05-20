@@ -1,7 +1,12 @@
 .App {
-  min-height: 100vh;
+  height: 100%;
 
-  background-color: #e4e6ec;
+  background-color: #f9f9fb;
 }
 
-
+html,
+body,
+#app,
+#app > div {
+  height: 100%;
+}

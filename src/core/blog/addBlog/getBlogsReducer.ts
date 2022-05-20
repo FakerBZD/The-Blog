@@ -1,52 +1,47 @@
-import * as actions from "./getBlogsActionTypes";
+import * as actions from "./addBlogActionTypes";
 
-export interface BlogsState {
-  data: any;
+export interface AddBlogsState {
   request: boolean;
   success: boolean;
   failure: boolean;
   message: string;
-  blogs: any;
 }
 
-const initialState: BlogsState = {
+const initialState: AddBlogsState = {
   request: false,
   success: false,
   failure: false,
   message: "",
-  blogs: {},
-  data: [],
 };
 
-export default function getBlogsReducer(
+export default function addBlogsReducer(
   // eslint-disable-next-line default-param-last
-  state: BlogsState = initialState,
-  action: actions.GetBlogsAction
-): BlogsState {
+  state: AddBlogsState = initialState,
+  action: actions.AddBlogAction
+): AddBlogsState {
   switch (action.type) {
-    case actions.GET_BLOGS_REQUEST:
+    case actions.ADD_BLOG_REQUEST:
       return {
         ...state,
         request: true,
         success: false,
         failure: false,
-        blogs: {},
       };
-    case actions.GET_BLOGS_SUCCESS:
+    case actions.ADD_BLOG_SUCCESS:
       return {
         ...state,
         request: false,
         success: true,
         failure: false,
-        blogs: action.payload!,
+        message: action.payload.message!,
       };
-    case actions.GET_BLOGS_FAILURE:
+    case actions.ADD_BLOG_FAILURE:
       return {
         ...state,
         request: false,
         success: false,
         failure: true,
-        blogs: action.payload,
+        message: action.payload.message,
       };
     default:
       return state;

@@ -4,7 +4,6 @@ export const BlogContainerStyled = styled("div")(() => ({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  height: "100vh",
 }));
 export const BlogPaperStyled = styled("div")(() => ({
   borderRadius: "0.5em",
