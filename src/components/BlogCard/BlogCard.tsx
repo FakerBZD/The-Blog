@@ -41,7 +41,11 @@ const BlogCard: FC<any> = ({ blog }): ReactElement => {
 
             <BlogTitleStyled>{title}</BlogTitleStyled>
             <BlogBriefStyled>{wordShrinker(content)}</BlogBriefStyled>
-            <CustomButton label="Read more" onClick={navigateToBlogHandler} />
+            <CustomButton
+              label="Read more"
+              onClick={navigateToBlogHandler}
+              sizeType="small"
+            />
             <VoteSectionStyled>
               {upvote}
               <ThumbUpIcon sx={iconStyling} />

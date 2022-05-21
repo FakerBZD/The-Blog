@@ -2,9 +2,8 @@ import React from "react";
 
 import { Box } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import OutlinedInput from "@mui/material/OutlinedInput";
 import { InputFieldProps } from "./InputField.types";
-import { StyledTextField } from "./InputField.styles";
+import { AddBlogContainerStyled } from "./InputField.styles";
 
 const InputField: React.FC<InputFieldProps> = ({
   onBlur,
@@ -15,8 +14,7 @@ const InputField: React.FC<InputFieldProps> = ({
   onChange,
 }) => (
   <Box>
-    <OutlinedInput
-      sx={StyledTextField}
+    <AddBlogContainerStyled
       value={value}
       name={name}
       onChange={onChange}

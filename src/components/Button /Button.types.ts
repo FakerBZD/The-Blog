@@ -7,4 +7,5 @@ export interface ButtonProps
     >,
     React.AriaAttributes {
   label: string;
+  sizeType: "large" | "small";
 }

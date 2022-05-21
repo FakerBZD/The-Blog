@@ -5,17 +5,18 @@ import InputField from "components/InputField/InputField";
 import CustomButton from "components/Button /Button";
 import { useDispatch } from "react-redux";
 // import { useDispatch, useSelector } from "react-redux";
-import ReactQuill from "react-quill";
 
 import { addBlogRequest } from "core/blog/addBlog/addBlogActionCreator";
 
-import Box from "@mui/material/Box";
 // import { useNavigate } from "react-router-dom";
 // import { AppState } from "core/rootReducer";
 import {
   CustomisedError,
-  AddBlogContainer,
-  EditorContainer,
+  AddBlogContainerStyled,
+  EditorContainerStyled,
+  FormContainerStyled,
+  LabelContainerStyled,
+  ReactQuillStyled,
 } from "./AddBlog.styles";
 import { addBlogSchema } from "../../utils/validations/addBlog.validation";
 
@@ -30,7 +31,7 @@ const AddBlog: FC = () => {
   }, []);
 
   return (
-    <AddBlogContainer>
+    <AddBlogContainerStyled>
       <Formik
         initialValues={{
           title: "",
@@ -47,50 +48,52 @@ const AddBlog: FC = () => {
           <Form onSubmit={formik.handleSubmit}>
             <Grid container spacing={3}>
               <Grid item xs={12} md={3}>
-                <Box>
+                <FormContainerStyled>
+                  <LabelContainerStyled> Title : </LabelContainerStyled>
                   <InputField
-                    placeholder="Title"
+                    placeholder="example : CopyWriting"
                     // returns onChange, onBlur and value related to this input field
                     {...formik.getFieldProps("title")}
                     name="Blog Title"
                   />
-
                   <CustomisedError name="Blog Title" component="Box" />
+                  <LabelContainerStyled> Author : </LabelContainerStyled>
 
                   <InputField
-                    placeholder="Author"
+                    placeholder="example : Faker BENZID"
                     {...formik.getFieldProps("author")}
                     name="Author"
                   />
                   <CustomisedError name="Author" component="Box" />
+                  <LabelContainerStyled> Thumbnail url : </LabelContainerStyled>
 
                   <InputField
-                    placeholder="Thumbnail url"
+                    placeholder="https://audreytips.com/wp-content/uploads/2020/10/copywriting.jpg"
                     {...formik.getFieldProps("image")}
                     name="Thumbnail url"
                   />
                   <CustomisedError name="Thumbnail url" component="Box" />
-                </Box>
+                  <CustomButton
+                    type="submit"
+                    label="Add blog"
+                    sizeType="large"
+                  />
+                </FormContainerStyled>
               </Grid>
               <Grid item xs={12} md={9}>
-                {
-                  // eslint-disable-next-line no-return-assign
-                }
-                <EditorContainer>
-                  <ReactQuill
+                <EditorContainerStyled>
+                  <ReactQuillStyled
                     ref={(el) => {
                       instanceRef.current = el;
                     }}
                   />
-                </EditorContainer>
+                </EditorContainerStyled>
               </Grid>
             </Grid>
-
-            <CustomButton type="submit" label="Login" />
           </Form>
         )}
       </Formik>
-    </AddBlogContainer>
+    </AddBlogContainerStyled>
   );
 };
 
