@@ -23,7 +23,6 @@ const BlogCard: FC<any> = ({ blog }): ReactElement => {
   const navigateToBlogHandler = () => {
     Navigate(`/Blog/${id}`);
   };
-  console.log(blog, "qdsqdsqdsqd");
   const wordShrinker = (blogtoShring: string): string => {
     if (blogtoShring.length >= 135)
       return `${blogtoShring.substring(0, 135)} ...`;

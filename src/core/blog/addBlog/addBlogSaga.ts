@@ -5,9 +5,10 @@ import { AddBlog } from "./addBlogServices";
 import * as actionCreators from "./addBlogActionCreator";
 import { ADD_BLOG_REQUEST } from "./addBlogActionTypes";
 
-function* onLoadAddBlog() {
+function* onLoadAddBlog({ payload }: any) {
+  console.log("in sagaa");
   try {
-    const blogs: AxiosResponse<ResponsePayload> = yield call(AddBlog);
+    const blogs: AxiosResponse<ResponsePayload> = yield call(AddBlog, payload);
     const { data } = blogs;
     yield put(actionCreators.addBlogSuccess(data));
   } catch (error: any) {

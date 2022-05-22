@@ -8,4 +8,5 @@ export interface ButtonProps
     React.AriaAttributes {
   label: string;
   sizeType: "large" | "small";
+  type?: "submit" | "reset" | "button";
 }

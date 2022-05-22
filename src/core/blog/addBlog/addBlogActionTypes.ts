@@ -7,7 +7,7 @@ export interface AddBlogRequestAction {
   payload: any;
 }
 
-export const ADD_BLOG_SUCCESS = "GET_BLOGS_SUCCESS";
+export const ADD_BLOG_SUCCESS = "ADD_BLOG_SUCCESS";
 export interface AddBlogSuccessAction {
   type: typeof ADD_BLOG_SUCCESS;
   payload: ResponsePayload;
