@@ -25,10 +25,7 @@ const AddBlog: FC = () => {
 
   const dispatch = useDispatch();
   //   const navigate = useNavigate();
-  // const instanceRef = React.useRef(null);
-  useEffect(() => {
-    // console.log(instanceRef.current.getEditor());
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <AddBlogContainerStyled>
@@ -45,66 +42,60 @@ const AddBlog: FC = () => {
         }}
         validationSchema={addBlogSchema}
       >
-        {(formik) => {
-          console.log(formik);
-          return (
-            <Form onSubmit={formik.handleSubmit}>
-              <Grid container spacing={3}>
-                <Grid item xs={12} md={3}>
-                  <FormContainerStyled>
-                    <LabelContainerStyled> Title : </LabelContainerStyled>
-                    <InputField
-                      placeholder="example : CopyWriting"
-                      // returns onChange, onBlur and value related to this input field
-                      {...formik.getFieldProps("title")}
-                      name="title"
-                    />
-                    <CustomisedError name="title" component="Box" />
-                    <LabelContainerStyled> Author : </LabelContainerStyled>
+        {(formik) => (
+          <Form onSubmit={formik.handleSubmit}>
+            <Grid container spacing={3}>
+              <Grid item xs={12} md={3}>
+                <FormContainerStyled>
+                  <LabelContainerStyled> Title : </LabelContainerStyled>
+                  <InputField
+                    placeholder="example : CopyWriting"
+                    // returns onChange, onBlur and value related to this input field
+                    {...formik.getFieldProps("title")}
+                    name="title"
+                  />
+                  <CustomisedError name="title" component="Box" />
+                  <LabelContainerStyled> Author : </LabelContainerStyled>
 
-                    <InputField
-                      placeholder="example : Faker BENZID"
-                      {...formik.getFieldProps("author")}
-                      name="author"
-                    />
-                    <CustomisedError name="author" component="Box" />
-                    <LabelContainerStyled>
-                      {" "}
-                      Thumbnail url :{" "}
-                    </LabelContainerStyled>
+                  <InputField
+                    placeholder="example : Faker BENZID"
+                    {...formik.getFieldProps("author")}
+                    name="author"
+                  />
+                  <CustomisedError name="author" component="Box" />
+                  <LabelContainerStyled> Thumbnail url : </LabelContainerStyled>
 
-                    <InputField
-                      placeholder="https://audreytips.com/wp-content/uploads/2020/10/copywriting.jpg"
-                      {...formik.getFieldProps("image")}
-                      name="image"
-                    />
-                    <CustomisedError name="image" component="Box" />
-                    <CustomButton
-                      type="submit"
-                      className="btn"
-                      label="Add blog"
-                      sizeType="large"
-                    />
-                  </FormContainerStyled>
-                </Grid>
-                <Grid item xs={12} md={9}>
-                  <EditorContainerStyled>
-                    <Field name="content" component="Box">
-                      {({ field }: any) => (
-                        <ReactQuillStyled
-                          value={field.value}
-                          onChange={field.onChange(field.name)}
-                        />
-                      )}
-                    </Field>
-
-                    <CustomisedError name="content" component="Box" />
-                  </EditorContainerStyled>
-                </Grid>
+                  <InputField
+                    placeholder="https://audreytips.com/wp-content/uploads/2020/10/copywriting.jpg"
+                    {...formik.getFieldProps("image")}
+                    name="image"
+                  />
+                  <CustomisedError name="image" component="Box" />
+                  <CustomButton
+                    type="submit"
+                    className="btn"
+                    label="Add blog"
+                    sizeType="large"
+                  />
+                </FormContainerStyled>
               </Grid>
-            </Form>
-          );
-        }}
+              <Grid item xs={12} md={9}>
+                <EditorContainerStyled>
+                  <Field name="content" component="Box">
+                    {({ field }: any) => (
+                      <ReactQuillStyled
+                        value={field.value}
+                        onChange={field.onChange(field.name)}
+                      />
+                    )}
+                  </Field>
+
+                  <CustomisedError name="content" component="Box" />
+                </EditorContainerStyled>
+              </Grid>
+            </Grid>
+          </Form>
+        )}
       </Formik>
     </AddBlogContainerStyled>
   );
