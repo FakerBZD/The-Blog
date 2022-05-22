@@ -1,5 +1,5 @@
 export interface ResponsePayload {
   message: any;
-  status?: number;
+  code?: number;
   data?: { [key: string]: string };
 }

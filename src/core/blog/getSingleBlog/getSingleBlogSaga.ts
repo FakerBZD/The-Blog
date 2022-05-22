@@ -5,19 +5,22 @@ import { GetBlog } from "./getSingleBlogServices";
 import * as actionCreators from "./getSingleBlogActionCreator";
 import { GET_SINGLE_BLOG_REQUEST } from "./getSingleBlogActionTypes";
 
-function* onLoadGetBlogs() {
+function* onLoadGetSinlgeBlog(payload: any) {
   try {
-    const blogs: AxiosResponse<ResponsePayload> = yield call(GetBlog);
+    const blogs: AxiosResponse<ResponsePayload> = yield call(
+      GetBlog,
+      payload.id
+    );
     const { data } = blogs;
     yield put(actionCreators.getSingleBlogSuccess(data));
   } catch (error: any) {
     yield put(actionCreators.getSingleBlogFailure(error.response.data));
   }
 }
-function* watchOnLoadGetBlogs() {
-  yield takeEvery(GET_SINGLE_BLOG_REQUEST, onLoadGetBlogs);
+function* watchOnLoadGetSingleBlog() {
+  yield takeEvery(GET_SINGLE_BLOG_REQUEST, onLoadGetSinlgeBlog);
 }
 
-export default function* GetBlogsSaga() {
-  yield all([fork(watchOnLoadGetBlogs)]);
+export default function* GetSingleBlogSaga() {
+  yield all([fork(watchOnLoadGetSingleBlog)]);
 }

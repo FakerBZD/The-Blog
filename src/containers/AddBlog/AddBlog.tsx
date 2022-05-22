@@ -1,15 +1,16 @@
-import React, { FC, useEffect } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { Grid } from "@mui/material";
 import { Formik, Form, Field } from "formik";
 import InputField from "components/InputField/InputField";
 import CustomButton from "components/Button /Button";
-import { useDispatch } from "react-redux";
-// import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { addBlogRequest } from "core/blog/addBlog/addBlogActionCreator";
 
-// import { useNavigate } from "react-router-dom";
-// import { AppState } from "core/rootReducer";
+import { useNavigate } from "react-router-dom";
+import { AppState } from "core/rootReducer";
 import {
   CustomisedError,
   AddBlogContainerStyled,
@@ -21,11 +22,29 @@ import {
 import { addBlogSchema } from "../../utils/validations/addBlog.validation";
 
 const AddBlog: FC = () => {
-  //   const auth = useSelector((state: AppState) => state);
+  // Skip first render
+  const [firstRender, setFirstRender] = useState(true);
+  const blog = useSelector((state: AppState) => state.addBlog);
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
-  //   const navigate = useNavigate();
-  useEffect(() => {}, []);
+  useEffect(() => {
+    if (firstRender) setFirstRender(false);
+    else if (blog.success) {
+      toast.success("Blog added !", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      setTimeout(() => {
+        navigate("/all-blogs");
+      }, 1500);
+    }
+  }, [blog.success]);
 
   return (
     <AddBlogContainerStyled>
@@ -37,7 +56,6 @@ const AddBlog: FC = () => {
           image: "",
         }}
         onSubmit={(values) => {
-          console.log(values, "submitting");
           dispatch(addBlogRequest(values));
         }}
         validationSchema={addBlogSchema}
@@ -97,6 +115,17 @@ const AddBlog: FC = () => {
           </Form>
         )}
       </Formik>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </AddBlogContainerStyled>
   );
 };

@@ -4,6 +4,7 @@ export const GET_SINGLE_BLOG_REQUEST = "GET_SINGLE_BLOG_REQUEST";
 
 export interface GetSingleBlogRequestAction {
   type: typeof GET_SINGLE_BLOG_REQUEST;
+  id: string;
 }
 
 export const GET_SINGLE_BLOG_SUCCESS = "GET_SINGLE_BLOG_SUCCESS";

@@ -1,7 +1,5 @@
-// import BlogCard from "components/BlogCard/BlogCard";
 import AddBlog from "containers/AddBlog/AddBlog";
 import AllBlogs from "containers/AllBlogs/AllBlogs";
-// import AllBlogs from "containers/AllBlogs/AllBlogs";
 import Layout from "containers/Layout/Layout";
 import React from "react";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
@@ -22,7 +20,7 @@ function App() {
           >
             {/* <Route path="/blogs" element={<SignUp />} />
             <Route path="/add-blog" element={<Login />} /> */}
-            <Route path="blog" element={<Blog />} />
+            <Route path="blog/:id" element={<Blog />} />
             <Route path="all-blogs" element={<AllBlogs />} />
             <Route path="add-blog" element={<AddBlog />} />
           </Route>
